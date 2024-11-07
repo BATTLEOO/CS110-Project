@@ -1,7 +1,6 @@
 import rsa
-import stdio
 import sys
-
+import stdio
 
 # Entry point.
 def main():
@@ -13,10 +12,9 @@ def main():
     # this mean we have to get the numer of bits for every character
     # use bitLength, it returns the least number of bits needed to represents n
     width = rsa.bitLength(n)
-    print(width)
 
     # use readString to read the input from standard input, which will be the data from the encrypt.py.
-    message = stdio.readString()
+    message = stdio.readAll()
 
     # set l as the length of message
     l = len(message)
@@ -24,7 +22,7 @@ def main():
     # create a for loop that is from  to l -1(exclude), and the step is width
     # one range of width is one character, and we convert the width to character
     # This is the idea of the covert from binary to character
-    for i in range(0, l, width):
+    for i in range(0, l - 1, width):
 
         # we set s as a part of the list from i to i + width
         # which is the number of message that we need, everytime we loop, we cut small piece of the data from message
@@ -39,10 +37,10 @@ def main():
 
         # we obtained the value by using the built-in function chr()
         stdio.write(chr(decrypted))
-    stdio.writeln()
 
 if __name__ == "__main__":
     main()
 # for code running
 # 000110000000010011010100001010100011001010100011001110000110010111100100
 # python encrypt.py 3599 1759 | python decrypt.py 3599 2839
+

@@ -77,7 +77,8 @@ def bin2dec(n):
 def _primes(lo, hi):
     # create an empty list
     isprime = [True] * hi
-    isprime[0] = isprime[1] = False
+    isprime[0] = False
+    isprime[1] = False
     # create a for loop in range from lo to hi(exclude)
     for i in range(2, int(hi ** 0.5) + 1):
         if isprime[i]:
