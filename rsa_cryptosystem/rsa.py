@@ -9,9 +9,11 @@ def keygen(lo, hi):
     # call function _primes to get the primes lis, from lo to hi(exclude)
     lis = _primes(lo, hi)
 
-    # call function sample, sample ensure p and q get two different primes
+    # call function _choice, and ensure p and q get two different primes
     p = _choice(lis)
     q = _choice(lis)
+
+    # while p is equal to q call _choice, keep random to chose the value from lis until we get a different value
     while p == q:
         q = _choice(lis)
 
@@ -19,41 +21,45 @@ def keygen(lo, hi):
     n = p * q
     m = (p - 1) * (q - 1)
 
+    # call _primes create prime lis2 from 2 to m(exclude)
     lis2 = _primes(2, m)
-    # call function _choice to get a random prime from lis2
+
+    # while loop forever until break
     while True:
-    # while m mod e is zero, random the value until the remainder is not 0
+
+        # call _choice from lis2
         e = _choice(lis2)
+
+        # if remainder is zero keep looping, until random e with non-zero remainder
         if m % e != 0:
+
+            # meet condition non-zero remainder, break and step out the loop
             break
 
+    # initial d
     d = 0
+
+    # create for loop in range from 1 to m(exclude)
     for i in range(1, m):
+
+        # create if e * i % m == 1 we keep the value (d = i) and break
         if e * i % m == 1:
             d = i
             break
 
-
+    # return n, d, e in order as tuple
     return n, d, e
-
-    # the idea for this problem is that keygen have to return the public and private key as tuple
-    # picking prime numbers p and q and value of e
-    # no calculation at that time, only get the value from it
-    # the return value have to be a tuple(n, e, d), than it means that we only need to evaluate these three value
-    # we need to pick the prime number p and q in [lo, hi)
-
-
 
 # Encrypts x (int) using the public key (n, e) and returns the encrypted value.
 def encrypt(x, n, e):
-    # !!! issue occur Test Failed: local variable 'e' referenced before assignment
-    # return the value by the given formular
+
+    # return the value by using encrypt formular (x ** e) % n
     return (x ** e) % n
 
 
 # Decrypts y (int) using the private key (n, d) and returns the decrypted value.
 def decrypt(y, n, d):
-    # return the value by the given formular
+    # return the value by using decrypt formular (y ** d) % n
     return (y ** d) % n
 
 
@@ -75,51 +81,68 @@ def bin2dec(n):
 
 # Returns a list of primes from the interval [lo, hi).
 def _primes(lo, hi):
-    # create an empty list
-    isprime = [True] * hi
+    # create an empty list isprime (for checking)
+    isprime = []
+
+    # create a list that have hi element, default value is True
+    for i in range(hi + 1):
+
+        # Append [True] to isprime
+        isprime += [True]
+
+    # set isprime[0] and isprime[1], 1 and 0 is not prime number
     isprime[0] = False
     isprime[1] = False
-    # create a for loop in range from lo to hi(exclude)
-    for i in range(2, int(hi ** 0.5) + 1):
-        if isprime[i]:
-            # Mark all multiples of i as non-prime starting from i*i
-            for j in range(i * i, hi, i):
-                isprime[j] = False
-    lis = []
-    for i in range(lo, hi):
-        if isprime[i]:
-            lis += [i]
 
-    # return the list
-    return lis
+    # create a for loop in range from 2 to hi (include hi itself)
+    for i in range(2, hi + 1):
+
+        # create if isprime is True, we get in to check whether is prime num
+        if isprime[i]:
+
+            # create for loop in range 2 to hi // i (include), we mark all the value from 2 to hi // i + 1
+            for j in range(2, hi // i + 1):
+
+                # make all the value that can be multiple to False
+                isprime[i * j] = False
+
+    # create a list prime to store prime number that is True
+    prime = []
+
+    # create for loop from lo to hi(exclude) check isprime from lo to hi(exclude)
+    for i in range(lo, hi):
+
+        # if True, add the value to prime
+        if isprime[i]:
+            prime += [i]
+
+    # return the list prime
+    return prime
 
 
 # Returns a list containing a random sample (without replacement) of k items from the list a.
 def _sample(a, k):
-    # !!!! issue occur
     # copy list a to list b
     b = a[:]
 
-    # create a copy from 0 to k(exclude) elements, we name it as fk
+    # create a copy from 0 to k(exclude) elements, we name it as fk(first k)
     fk = b[:k]
 
     # shuffle the first k elements of fk which is the first k elements in list b
     stdrandom.shuffle(fk)
 
-    # we assign the value that is shuffle in fk to the original b list first k element
-    # notice that we need to apply the shuffle value to b[:k] because we only change it in fx
-
-
-    # return list fk, because the problem only need the k item in the list
+    # return list fk, because the problem only need the k item in the list that is shuffled
     return fk
-
-
 
 # Returns a random item from the list a.
 def _choice(a):
-    # pass the test, no need to
+    # set l to length of list a
     l = len(a)
+
+    # random the index of list a, we set the value to r
     r = stdrandom.uniformInt(0, l)
+
+    # return int(a[r]) as a random value from a list
     return int(a[r])
 
 # Unit tests the library [DO NOT EDIT].

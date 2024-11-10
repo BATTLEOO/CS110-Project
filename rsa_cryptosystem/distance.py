@@ -15,14 +15,20 @@ def main():
 
 
 def _distance(x, y):
-    # x and y is a list, idea is to access the x and y by each of them
-    # and caluate need a for loop to loop the length first and then x1 anc x2
+    # set d to 0.0 as float type
     dis = 0.0
+
+    # set n as the number of elements in x
     n = len(x)
+
+    # create for i in range n(exclude)
     for i in range(n):
+
+        # increment dis everytime calculate the point use (x[i] - y[i]) ** 2
         dis += (x[i] - y[i]) ** 2
-    dis = math.sqrt(dis)
-    return dis
+
+    # return the value: total dis with sqrt root function
+    return math.sqrt(dis)
 
 if __name__ == "__main__":
     main()
