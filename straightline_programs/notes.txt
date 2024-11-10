@@ -1,0 +1,80 @@
+1. Provide a high-level description (ie, using minimal amount of technical jargon) of each problem
+in no more than 100 words.
+
+Problem 1 (Name and Age): 1. Create Arguments: name, age
+                          2. Write name, age in standard output
+
+Problem 2 (Greet Three):  1. Create Arguments: name1, name2, name3
+                          2. Write name1, name1, name3 in standard output
+
+Problem 3 (Day of the Week): 1. Create Arguments: month, day, year
+                             2. Write expression: y0, xo, mo, dow (use mod operation)
+                             3. Write dow in standard output
+
+Problem 4 (Three Sort): 1. Create Arguments: input1, input2, input3
+                        2. Using max functions and min functions to create largest and smallest
+                        3. Calculate middle number by minus sum (min + max)
+                        4. Write smallest, mid, largest in standard output
+
+Problem 5 (Body Mass Index): 1. Create Float Arguments: weight, height
+                             2. Write expression bmi
+                             3. Write bmi in standard output
+
+Problem 6 (Wind Chill): 1. Create Float Arguments: t (temperature), v(wind speed)
+                        2. Write expression w (wind chill)
+                        3. Write w in standard output
+
+Problem 7 (Gravitational Force): 1. Create Float Arguments: m1, m2, r
+                                 2. Give G (gravity) a value
+                                 3. Write expression f(force)
+                                 4. Write f in standard output
+
+Problem 8 (Gambler's Ruin): 1. Create Arguments: n1 int(player1 pennies), n2 int(player 2 pennies), p float(player 1 probability)
+                            2. Write p (probability for player1) and q (probability for player2)
+                            3. Write p1 , p2 in standard output
+
+Problem 9 (Waiting Time): 1. Create Float Arguments: avg(average), t(time)
+                          2. Write expression p(probability)
+                          3. Write p in standard output
+
+Problem 10 (Cartesian Coordinates): 1. Create Float Arguments: r and o(theta)
+                                    2. Write x (coso) and y (sino) expression result in radians
+                                    3. Write x, y in standard output
+
+Problem 11 (Great Circle Distance): 1. Create Float Arguments: x1, y1, x2, y2
+                                    2. Write expression d(distance)
+                                    3. Write d in standard output
+
+Problem 12 (Snell's Law): 1. Create Float Arguments: o1, n1, n2
+                          2. Write sino2 (sin theta) in expression --- write in radians
+                          3. Write 02 --- change result in degree (using the value of sin theta)
+                          4. Write o2 in standard output
+
+Problem 13 (Uniform Random Numbers): 1. Create Int Arguments: a, b
+                                     2. Set x1, x2, x3 in random form a to b
+                                     3. Write expression u, var, sd
+                                     4. Write u, var, sd in standard output
+
+Problem 14 (Die Roll): 1. Create Int Argument: n(number of sides)
+                       2. Random r1(die 1) and r2 (die 2)
+                          From 1 to n + 1
+                       3. Write expression sum (r1 + r2)
+                       4. Write s in standard output
+
+Problem 15 (Triangle Inequality): 1. Create Int Arguments: x, y, z
+                                  2. Create expression
+                                  = one side <= sum of other
+                                  3. Write expression in standard output
+
+2. Did you receive help from anyone? List their names, status (classmate, course staff, other), and
+the nature of help received.
+
+Name                   Status           Help Received
+----                   ------           -------------
+
+...                    ...              ...
+
+3. List any other comments here. Feel free to provide any feedback on how much you learned from
+doing the assignment, and whether you enjoyed doing it.
+
+...
