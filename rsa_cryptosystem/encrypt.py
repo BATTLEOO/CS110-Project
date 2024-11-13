@@ -11,7 +11,7 @@ def main():
     # get the number of bits for per character needed for encryption
     width = rsa.bitLength(n)
 
-    # get the message from standard input, need to use stdio.readALL to read all the standard input, need to including \n
+    # get the message from standard input, need to use stdio.readALL to read all the standard input, need to including \n (newline is also consider as a char that need to convert to binary)
     message = stdio.readAll()
 
     # create a for loop, go through the message
@@ -20,13 +20,13 @@ def main():
         # use function ord() to turn c into an integer x
         x = ord(c)
 
-        # encrypt x one by one
+        # encrypt x by calling rsa.encrypt
         encrypted = rsa.encrypt(x, n, e)
 
         # we write the encrypted value as a width-long binary string, call rsa.dec2bin function, set encrypted width length and write in binary num in standard output
         stdio.write(rsa.dec2bin(encrypted, width))
 
-    # write newline
+    # write newline character
     stdio.writeln()
 
 

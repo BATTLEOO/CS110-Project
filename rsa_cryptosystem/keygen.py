@@ -9,10 +9,10 @@ def main():
     lo = int(sys.argv[1])
     hi = int(sys.argv[2])
 
-    # call function rsa.keygen to get the public ke or private key as a tuple
+    # call function rsa.keygen to get public/private keys as a tuple
     keys = rsa.keygen(lo, hi)
 
-    # write in standard output in newline with space between each key
+    # write in standard output, write the three values separated by a space
     stdio.writeln(str(keys[0]) + " " + str(keys[1]) + " " + str(keys[2]))
 
 if __name__ == "__main__":

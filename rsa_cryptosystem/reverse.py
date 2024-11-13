@@ -13,13 +13,13 @@ def main():
 # Reverses a in place, ie, without creating a new list.
 def _reverse(a):
 
-    # set n as the number of elements in a
+    # set n as the number of elements in a (the length of a)
     n = len(a)
 
-    # create a for loop in half of the len(a) - n//2 is more efficient
+    # create a for loop in range from 0 to the n//2 (exclude)
     for i in range(n//2):
 
-        # swapping value between two side of the number, the most right and the most left
+        # swapping value : a[i] and a[n - i - 1] , and use temp to store a[i]
         temp = a[i]
         a[i] = a[n -1 - i]
         a[n - 1 - i] = temp

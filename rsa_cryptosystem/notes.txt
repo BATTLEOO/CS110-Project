@@ -2,31 +2,32 @@
 your approach to solve it; and any issues you encountered and if/how you managed to solve them.
 
 Problem 1 (Reverse): def _reverse(a):
-                        1. set n as the number of elements in a
-                        2. create a for loop in half of the len(a) - n//2 is more efficient
-                           a) swapping value between two side of the number, the most right and the most left
+                        1. set n as the number of elements in a (the length of a)
+                        2. create a for loop in range from 0 to the n//2 (exclude)
+                           a) swapping value : a[i] and a[n - i - 1] , and use temp to store a[i]
                         3. return a to _reverse(a)
 
 Problem 2 (Euclidean Distance): def _distance(x, y):
                                     1. set d to 0.0 as float typed
                                     2. set n as the number of elements in x
                                     3. create for i in range n(exclude)
-                                        a) increment dis everytime calculate the point use (x[i] - y[i]) ** 2
-                                    4. return the value: total dis with sqrt root function
+                                        a) increment dis by (x[i] - y[i]) ** 2
+                                    4. return math.sqrt(dis) (call math.sqrt)
 Problem 3 (Transpose): def _transpose(a):
-                           1. set m as the number rows in a
+                           1. set m as the number of rows in a
                            2. set n as the number of columns in a
-                           3. create c as a 2d list to store the value
-                           4. create i in range n(exclude) as new rows
-                                a) create j in range m(exclude) as new columns
-                                    i) assign the number in a to the list c, row to column , column to row
+                           3. create c as a 2d list to store the value n * m
+                           4. create for i in range 0 to n(exclude) as new rows
+                                a) create for j in range 0 to m(exclude) as new columns
+                                    i) c[i][j] = a[j][i] (set j(value is column) as row and i(value is row) as column), store the changed list in c
                            5. return list c
 
 Problem 4 (Palindrome): def _isPalindrome(s):
-                            1. create for i in range len(s)/2
-                                a) check the element is the same, e.g for 0 compare len -1 （last element in the list）
+                            1. set n to the number of characters in s
+                            1. create for i in range n//2 (include)
+                                a) check if the element is the same, write if not the same return false e.g for 0 compare len -1 （last element in the list）
                                     i) if not same return False
-                            2. return Ture no false happen in the if statement
+                            2. return Ture when if statement do not return false
 
 Problem 5 (Sine Function): def _sin(x):
                                 1. initialize total to 0.0, term to 1.0, sign to 1, and i to 1
@@ -45,7 +46,7 @@ Problem 6 (RSA Library): def keygen(lo, hi):
                             1. call function _primes to get the primes lis, from lo to hi(exclude)
                             2. call function _choice, and ensure p and q get two different primes
                             3. while p is equal to q call _choice, keep random to chose the value from lis until we get a different value
-                                   a) q = _choice(lis) , need to ensure that they have different value, if not raise an error
+                                    a) q = _choice(lis) , need to ensure that they have different value, if not raise an error
                             4. set m and n by the given formular
                             5. call _primes create prime lis2 from 2 to m(exclude)
                             6. create while loop forever until break
@@ -65,7 +66,7 @@ Problem 6 (RSA Library): def keygen(lo, hi):
 
                          def _primes(lo, hi):
                             1. create an empty list isprime (for checking)
-                            2. create a list that have hi element, default value is True
+                            2. create for loop from 0 to hi(include)
                                     a) Append [True] to isprime
                             3. set isprime[0] and isprime[1], 1 and 0 is not prime number
                             4. create a for loop in range from 2 to hi (include hi itself)
@@ -91,29 +92,29 @@ Problem 6 (RSA Library): def keygen(lo, hi):
 
 Problem 7 (Keygen Program): def main():
                                 1. create lo and hi as int arguments
-                                2. call function rsa.keygen to get the public ke or private key as a tuple
-                                3. write in standard output in newline with space between each key
+                                2. call function rsa.keygen to get public/private keys as a tuple
+                                3. write in standard output, write the three values separated by a space
 
 Problem 8 (Encryption Program): def main():
                                     1. Public keys: accept n and e as int arguments
                                     2. get the number of bits for per character needed for encryption
-                                    3. get the message from standard input, need to use stdio.readALL to read all the standard input, need to including \n
+                                    3. get the message from standard input, need to use stdio.readALL to read all the standard input, need to including \n (newline is also consider as a char that need to convert to binary)
                                     4. create a for loop, go through the message
                                             a) use function ord() to turn c into an integer x
-                                            b) encrypt x one by one
+                                            b) encrypt x by calling rsa.encrypt
                                             c) we write the encrypted value as a width-long binary string, call rsa.dec2bin function, set encrypted width length and write in binary num in standard output
-                                    5. write newline
+                                    5. write newline character
 
 Problem 9 (Decryption Program): def main():
                                     1. private key: accept n and d as int argument
-                                    2. get the number of bits per character(width)
+                                    2. get the number of bits per character(set to width)
                                     3. use stdio.readAll to read the input from standard input, which will be the data from the encrypt.py.
                                     4. set l as the length of message
-                                    5. create a for loop that is from  to l-1(exclude), and the step is width
-                                            a) we set s as a part of the list from i(previous stop point) to i + width (new stop point)
-                                            b) here we call rsa.bin2dec to convert binary to dec everytime
+                                    5. create a for loop that is from 0 to l-1(exclude), and the step is width
+                                            a) we set s as a part of the list from i(previous stop point) to i + width (new stop point) (i + width exclusive)
+                                            b) here we call rsa.bin2dec to convert binary to dec
                                             c) call rsa.decrypt to decrypt y to character
-                                            d) we obtained the value by using the built-in function chr()
+                                            d) write the character from the decrypted value, by using the built-in function chr()
 
 2. Did you receive help from anyone? List their names, status (classmate, course staff, other), and
 the nature of help received.

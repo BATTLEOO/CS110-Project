@@ -84,7 +84,7 @@ def _primes(lo, hi):
     # create an empty list isprime (for checking)
     isprime = []
 
-    # create a list that have hi element, default value is True
+    # create for loop from 0 to hi(include)
     for i in range(hi + 1):
 
         # Append [True] to isprime

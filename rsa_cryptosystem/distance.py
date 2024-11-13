@@ -24,10 +24,10 @@ def _distance(x, y):
     # create for i in range n(exclude)
     for i in range(n):
 
-        # increment dis everytime calculate the point use (x[i] - y[i]) ** 2
+        # increment dis by (x[i] - y[i]) ** 2
         dis += (x[i] - y[i]) ** 2
 
-    # return the value: total dis with sqrt root function
+    # return math.sqrt(dis) (call math.sqrt)
     return math.sqrt(dis)
 
 if __name__ == "__main__":

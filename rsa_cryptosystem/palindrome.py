@@ -10,17 +10,19 @@ def main():
 
 # Returns True if s is a palindrome and False otherwise.
 def _isPalindrome(s):
+    # set n to the number of characters in s
+    n = len(s)
 
-    # create for i in range len(s)/2
-    for j in range(len(s)//2):
+    # create for i in range 0 to n//2
+    for i in range(n // 2 + 1):
 
-        # check the element is the same, e.g for 0 compare len -1 （last element in the list）
-        if s[j] != s[len(s) - j - 1]:
+        # check if the element is the same, write if not the same return false e.g for 0 compare len -1 （last element in the list）
+        if s[i] != s[n - i - 1]:
 
             # if not same return False
             return False
 
-    # return Ture no false happen in the if statement
+    # return Ture when if statement do not return false
     return True
 
 if __name__ == "__main__":
