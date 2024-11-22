@@ -1,109 +1,35 @@
-1. For each problem, provide in more than 100 words, a short, high-level description of the problem;
+1. For each problem, provide in no more than 100 words, a short, high-level description of the problem;
 your approach to solve it; and any issues you encountered and if/how you managed to solve them.
 
-Problem 1 (Reverse): 1. read all strings from standard input into a list a
-                     2. use for loop, set i in range from 0 to n / 2, which n / 2 is not included
-                     3. using swap method to exchange a[i] with a[n − i −1]
-                     4. use for loop, set i in range from 0 to n, n is not included
-                            a) in the inner, write if statement, if i is less than n - 1, if True, write a[i] with a space after in standard output
-                            b) write else statement, write a[i] with a newline after in standard output
+Problem 1 (Sum of Integers): ...
 
-Problem 2 (Euclidean Distance): 1. set n as int arguments, n is the number of input we want to have
-                                2. create an empty list x, list x used to store the number we want to calculate
-                                3. use for loop, set the range from 0 to n, n is not included
-                                        a) set a value to store the user input to float, by using stdio.readFloat()
-                                        b) Append the value, we add the value to the end of the list, because the list is empty, so the first append value will be the first value in the list
-                                4. create a y list that is empty
-                                5. create a for loop that is the same idea form x
-                                        a) set the value 2 to read the user input
-                                        b) Append the value on by one from the user input
-                                6. set distance to 0.0 (float)
-                                5. set range from i to n, n not include
-                                        a) Increment distance by (x[i] − y[i]) ** 2
-                                6. after we get the value that from the for loop, we write distance in sqrt in standard output
+Problem 2 (Bit Counts): ...
 
-Problem 3 (Birthday Problem): 1. Set DAYS_PER_YEAR to 365
-                              2. Create trials as int argument
-                              3. Set count to
-                              4. write for loop in range from 0 to trials, trials do no include
-                                        a) Set birthdaysSeen to a list of size DAYS_PER_YEAR, and make all the value to False
-                                        b) set the while loop to True, make the loop run forever
-                                                i) Increment count by 1, to count the birthday
-                                                i) Set birthday to a random int from 0 to DAY_PER_YEAR(not include)
-                                                i) Write an if statement if we the value is true we break
-                                                        v) Write the break statement
-                                                        v) If we do not see the birthday before, we move into the else statement assign the True value in the current location
-                              5. Write count / trials in standard output, remember we want a floor division, so we use //
+Problem 3 (String Reversal): ...
 
-Problem 4 (Transpose): 1. set m and n as int arguments
-                       2. Create an m * n list, and set the value to None
-                       3. set for loop i in range from 0 to m(not include), this is row
-                                a) set for loop j in range from 0 to n(not include), this is column
-                                            b) Set a[i][j] to a float read from standard input, I set value1 to store the input
-                                            c) assign value1 to a[i][j]
-                       4. Create an n ×m list c, elements to None, it is a 2d list
-                       5. Create for loop i in range from 0 to n(not include)
-                                a) Create for loop j in range from 0 to m(not include)
-                                b) write if statement If j < m−1, write c[i][j] with a space after in standard output
-                                c) write else statement, write c[i][j] with a newline after in standard output
+Problem 4 (Palindrome): ...
 
-Problem 5 (Pascal's Triangle): 1. create n as int argument
-                               2. Create a list a of size n + 1 with all elements set to None, we stdarray.create1D())
-                               3. create a for loop i in range from 0 to n + 1, (n include)
-                                        a)Set a[i] to a list of size i + 1 with all elements set to 1
-                               4. create a for loop i in range from 0 to n + 1, (n include)
-                                        a) create a inner for loop i in range from 1 to i, (i not include)
-                                                b) Set a[i][j] to a[i − 1][j − 1] + a[i − 1][j]
-                               5. create a for loop i in range from 0 to n + 1, (n include)
-                                        a) create a inner for loop j in range form 0 to i + 1, (i include)
-                                                b) create an if statement, if j less than j we print a[i][j] in standard output with a space
-                                                c) if not j < i, we create an else statement write a[i][j] in standard output in new line
+Problem 5 (Password Checker): ...
 
-Problem 6 (Generating the Waltz): 1. Create a 2D list called minuetMeasures with dimensions 11 × 16
-                                  2. create a for loop i in range 11 (11 not include) -- we want to read all the value from the txt for minuet
-                                            a) create a for loop j in range 16 (16 not include)
-                                                    b) we read the value form the user input, then we store the value to the 2d list one by one, the first value store in minuetMeasures[0][0]
-                                  3. Create a 2D list called trioMeasures with dimensions 6 × 16
-                                  4. create a for loop i in range 6 (6 not include) -- we want to read all the value from the txt for trio
-                                            a) create a for loop j in range 16 (16 not include)
-                                                    b) we read the value form the user input, then we store the value to the 2d list one by one, the first value store in trioMeasures[0][0]
-                                  5. create a for loop in range from 0 to 15 + 1, (include 15)
-                                            a) (ram1 and ram2), and set ran1 and ram to random from 1 to 6 + 1
-                                            b) set i to the sum of two rolls
-                                            c) Write minuetMeasures[i − 2][j] with a space after in standard output
-                                  6. create a for loop in range from 0 to 15 + 1, (include 15)
-                                            a) Set i to the value of a die roll (a random number from 1 to 6 + 1)
-                                            b) Write trioMeasures[i − 1][j] with a space after in standard output
-                                  7. write a newline
+Problem 6 (Point Data Type): ...
 
-Problem 7 (Playing the Waltz): 1. readAllInts is already a list, store our input in measures
-                               2. write an if statement if the input is no equal to 32 -- also use len(measures) to check the number of input, if not equal to 32, print the message by using sys.exit()
-                                            a) write the message if not equal to 32
-                               3. write for i in range from measures[0] to measures[15], because we want to check the first 16 value is from minuet measure
-                                            a) write if statement , if is not between 1 and 176
-                                                    i) if not , we print a status say it must between 1 and 176
-                               4. write for loop i in range form 16 to 32 the last 16 elements that we want to access
-                                            a) we use if statement to check is the value between 1 and 96
-                                                    i) if not between, we print a status say it must between 1 and 96
-                               5. set a for loop v in range from [0] to [15], we want at to have the first 16 value
-                                            a) we store the value in waltz each time
-                                            b) we set the file name , filename = 'data/M' + str(minuet)
-                                            c) we use stdaudio.playFile to play the music which choose from M.wav
-                               6. set a for loop v in range from [16] to [31], we want at to have the last 16 value
-                                            a) we store the value in trio each time
-                                            b) we set the file name, filename = 'data/T' + str(trio)
-                                            c) we use stdaudio.playFile to play the music which choose from T.wav
-                                              PROBLEM:
-                                              !! WINDOWS CANNOT PLAY THE MUSIC DUE TO ITS CAPABILITY
+Problem 7 (Interval Data Type): ...
 
-                                              PROBLEM SOLUTION -- 2024/10/21
-                                              IMPORT THE LATEST STDADUIO LIBRARY , THEN THE CODE IS ABLE TO RUN
+Problem 8 (Rectangle Data Type): ...
+
+Problem 9 (Particle Representation): ...
+
+Problem 10 (Particle Identification): ...
+
+Problem 11 (Particle Tracking): ...
+
+Problem 12 (Estimating Avogadro's Constant): ...
 
 2. Did you receive help from anyone? List their names, status (classmate, course staff, other), and
 the nature of help received.
 
-Name                                          Status                        Help Received
-JJZHANG (NAME FORM DISCORD)                   CLASSMATE (DISCORD)           HELPING FROM PROBLEM 7 (IMPORT A NEW STDADUIO LIBRARY)
+Name                   Status           Help Received
+----                   ------           -------------
 
 ...                    ...              ...
 
