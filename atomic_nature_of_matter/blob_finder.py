@@ -17,7 +17,7 @@ class BlobFinder:
         self._blobs = []
 
         # create a 2d list to marked the blob that we find , have the same dimensions as pic(assume)
-        marked = stdarray.create2D(pic.width(), pic.height(), None)
+        marked = stdarray.create2D(pic.width(), pic.height())
         # only for checking and help to followed up in the if statement
         for i in range(pic.width()):  # looping each col of the image
             for j in range(pic.height()):  # looping through each row of the image
@@ -26,7 +26,9 @@ class BlobFinder:
                 # we do not want to assign findBlob to any attribute
                 self._findBlob(pic, tau, i, j, marked, blob)
                 # we find blob and add to blobs, remember []
-                self._blobs += [blob]
+                # problem fixed, forget to add the if statement when blob.mass() > 0 
+                if blob.mass() > 0:
+                    self._blobs += [blob]
 
     # Returns a list of all beads (blobs with mass >= pixels).
     def getBeads(self, pixels):
