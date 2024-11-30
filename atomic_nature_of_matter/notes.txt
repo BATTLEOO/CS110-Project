@@ -1,29 +1,192 @@
 1. For each problem, provide in no more than 100 words, a short, high-level description of the problem;
 your approach to solve it; and any issues you encountered and if/how you managed to solve them.
 
-Problem 1 (Sum of Integers): ...
+Problem 1 (Sum of Integers): def _sumOfInts(n):
+                                1. Base case: if n == 1 , return 1
+                                2. write recursion if n > 1, return n + _sumOfInts(n - 1)
 
-Problem 2 (Bit Counts): ...
 
-Problem 3 (String Reversal): ...
+Problem 2 (Bit Counts): def _zeros(s):
+                            1. Base case: if s is empty, return 0
+                            2. if zero return 1 + _zeros(s[1:]), remember 0 is string need to use'', if not, the if statement will not check zero correctly
+                            3. otherwise(else) return _zeros(s[1:])
 
-Problem 4 (Palindrome): ...
+                        def _ones(s):
+                            1. Base case: if s is empty, return 0
+                            2. if 1, return 1 + _ones(s[1:]). remember 1 is string need to use'', if not, the if statement will not check one correctly
+                            3. otherwise(else) return _ones(s[1:])
 
-Problem 5 (Password Checker): ...
 
-Problem 6 (Point Data Type): ...
+Problem 3 (String Reversal): def _reverse(s):
+                                1. set n to the length of s
+                                2. Base case: if n = 0, return the empty string
+                                3. Return a concatenation of s[n - 1] and _reverse(s[:n - 1]); s[n - 1] is the last element in the list, s[:n - 1]
 
-Problem 7 (Interval Data Type): ...
 
-Problem 8 (Rectangle Data Type): ...
+Problem 4 (Palindrome): def _isPalindrome(s):
+                            1. set n to the length of s
+                            2. Base case: if n = 0, return True
+                            3. return True if the first character (s[:1]) in s is the same as the last character(s[n - 1])
+                                a) return _isPalindrome(s[1:-1]). When touch the base case _isPalindrome return True
+                            4. else: as long as not touching the else statement the function will always be True, when not equal, return false
 
-Problem 9 (Particle Representation): ...
 
-Problem 10 (Particle Identification): ...
+Problem 5 (Password Checker): def _isValid(pwd):
+                                1. set check1, check2, check3, check4, check5 to False
+                                2. if length of pwd is at least 8, set check1 to True
+                                3. for each character c in pwd
+                                    a) If c is a digit, set check2 to True
+                                    b) Else if c is upper case, set check3 to True
+                                    c) Else if c is lower case, set check4 to True
+                                    d) Else if c is not alphanumeric, set check5 to True
+                                4. Return check1, check2, check3, check4, and check5 (boolean statement)
 
-Problem 11 (Particle Tracking): ...
 
-Problem 12 (Estimating Avogadro's Constant): ...
+Problem 6 (Point Data Type): def __init__(self, x, y):
+                                1. instance variables
+                                    x-coordinate, _x (float) initialize
+                                    y-coordinate, _y (float) initialize
+
+                             def distanceTo(self, other):
+                                1. Return the Euclidean distance between the points self and other
+
+
+Problem 7 (Interval Data Type): def __init__(self, lbound, ubound):
+                                    1. Instance variables
+                                        Lower bound of the interval, _lbound (float) initialize
+                                        Upper bound of the interval, _rbound (float) initialize
+
+                                def lower(self):
+                                    1. Return the value of the instance variable _lbound
+
+                                def upper(self):
+                                    1. Return the value of the instance variable _ubound
+
+                                def contains(self, x):
+                                    1. Return True if the interval self contains x
+                                    2. otherwise(else) return False
+
+                                def intersects(self, other):
+                                    1. Return True if the interval self intersects the interval other
+                                    2. otherwise(else) return False
+
+
+Problem 8 (Rectangle Data Type): def __init__(self, xint, yint):
+                                    1. Instance variables
+                                        x-interval of the rectangle, _xint (Interval) initialize
+                                        y-interval of the rectangle, _yint (Interval) initialize
+
+                                 def area(self):
+                                    1. find the difference between hi and lo, assign the value in a and b
+                                    2. and return the area abs(a * b)
+
+                                 def perimeter(self):
+                                    1. find the difference between hi and lo, assign the value in a and b
+                                    2. p is equal to 2 * (abs(a)+ abs(b))
+                                    3. return the perimeter p
+
+                                 def contains(self, x, y):
+                                    1. Return True if the rectangle self contains the point (x,y) and False otherwise
+
+                                 def intersects(self, other):
+                                    1. Return True if the rectangle self intersects the rectangle other and False otherwise
+
+Problem 9 (Particle Representation): def __init__(self): (# Constructs an empty blob.)
+                                        1. instance variables
+                                            set self._pixels to 0 (int)
+                                            set self._x to 0.0 (float)
+                                            set self._y to 0.0 (float)
+
+                                     def add(self, x, y):
+                                        1. First increment pixels by 1, avoid divide by zero
+                                        2. always remember to put () here if not the result will be wrong
+                                           the running average is not the simple one, the running average should be the cumulative  running average, this part is the main idea of this method
+                                           use the running average formular to update the mass of center
+
+                                     def mass(self):
+                                        1. return the number of pixels
+
+                                     def distanceTo(self, other):
+                                        1. write Euclidean distance formular in the return statement
+                                           Return the Euclidean distance between the center of mass of self and the center of mass of other
+
+
+Problem 10 (Particle Identification): def __init__(self, pic, tau):
+                                        1. create an empty list to store the bead we fund, self._blobs = []
+                                        2. Create a 2D list of booleans called marked, having the same dimensions as pic
+                                           use pic.width() and pic.height() to get col and row, (Notice: make row to width, and col to height)
+                                        3. for each col of the image (pic.width())
+                                            a) for through each row of the image (pic.height())
+                                                i) create a Blob object called blob, we can see this blob as a temporary container
+                                                i) call _findBlob() with the appropriate arguments (the method that defined)
+                                                i) if statement when blob.mass() > 0 ,  add blob to self._blobs
+
+                                    def getBeads(self, pixels):
+                                        1. create an empty list to store the value of our beads
+                                        2. self._blobs have all the blobs that we found, and we want to count, To know how many beads we have, use for loop to go through self._blobs
+                                             a) we call mass (it return pixels to use), we only want the value that is bigger that pixels
+                                                 i)add b to add_beads
+                                        3. Return a list of blobs from blobs that have a mass ≥ pixels
+
+                                    def _findBlob(self, pic, tau, i, j, marked, blob):
+                                        1. Base case: return if pixel (i, j) is out of bounds, or if it is marked, or if its luminance (use the luminance() method from Color for this) is less than tau.
+                                           Can call Color directly because luminance is Static methods: independent of any instance of the class (can be use directly without creating object)
+                                        2. marked[i][j], make the current position True
+                                        3. call blob add pixel(i , j), to get the new center mass
+                                        4.  remember i is column , j is row
+                                            when j - 1 means N
+                                            self._findBlob(pic, tau,i , j - 1, marked, blob)
+
+                                            when j + 1 means S
+                                            self._findBlob(pic, tau, i, j + 1, marked, blob)
+
+                                            when i - 1 means E
+                                            self._findBlob(pic, tau, i - 1, j, marked, blob)
+
+                                            when i + 1 means W
+                                            self._findBlob(pic, tau, i + 1, j, marked, blob)
+
+
+Problem 11 (Particle Tracking): def main():
+                                    1. create command line arguments pixels(int), tau(float), delta(float)
+                                    2. create a frame as empty list in order to store a sequence of image frames
+                                       using 4: to include all the input after argument 3, this also help to read the file name
+                                    3. Construct a BlobFinder object for the frame and set the picture frame to frames[0]
+                                       here is to initial blobs, use BlobFinder on the first frame to identify blobs
+                                       frames[0] means the first input in sys.argv[4:]
+                                    4. from object_frame get a list of beads prev_beads that have at least pixels(user input)
+                                    5.  For each frame starting at sys.argv[5]:
+                                        sys.argv[5:] means read all the input after sys.argv[4], sys.argv property is list so can use the slicing method
+                                        set for loop to iterate subsequent_frame starting at object_frame
+                                            a) Construct a BlobFinder object(blob_detect)  and from it get a list of beads currBeads(store in curr_beads) that have at least pixels
+                                            b) for curr_bead in curr_beads
+                                                i) use map lambda: it is more clean and organize to use map lambda to calculate a list of prev_beads
+                                                i) use the filter to create a one time if statement to find the value x < = delta as a list
+                                            c) if closest_distance is ture
+                                                i) use min: because closest_distance is list, and we only want one value that is the closest_distance
+                                                   the closest_distance means that the smaller the distance is, the closer we are
+                                                   so use min to find the value that we want, and min also help to change our data type from list to float
+                                                i) write the output in standard format '%.4f\n'
+                                            d) Write a newline character
+                                            e) Set prevBeads to currBeads (update the curr_beads to prev_beads)
+
+
+Problem 12 (Estimating Avogadro's Constant): def main():
+                                             1. ETA is viscosity of water, Initialize ETA = 9.135e-4
+                                                RHO is the radius of bead, Initialize RHO = 0.5e-6
+                                                T is absolute temperature, Initialize T = 297
+                                                R is universal gas constant, Initialize R = 8.31457
+                                             2. set n to zero, serve as counter
+                                             3. set var_numerator = 0.0
+                                             4. create while not stdio.isEmpty(), the loop stop when there is no standard input
+                                                a) read input, assign input to displacement, use stdio.readFloat to check the number one by one
+                                                b) covert pixels to meters, use the formular provided (displacements * 0.175e-6)
+                                                c) Calculate var_numerator as the sum of the squares of the n displacements
+                                                d) increment n by 1, record the number of time we iterate
+                                             5. calculate var, Divide var by 2 * n, remember to put() when 2 * n, if not the result will be wrong
+                                             6. Estimate Boltzmann’s constant (assign the value to k) as 6 * math.pi * var * ETA * RHO / T
+                                             7. Estimate Avogadro’s constant(assign the value to Na) as R / k
+                                             8. Write to standard output the Avogadro constant in scientific notation (using the format string "%e")
 
 2. Did you receive help from anyone? List their names, status (classmate, course staff, other), and
 the nature of help received.

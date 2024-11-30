@@ -6,21 +6,32 @@ from interval import Interval
 class Rectangle:
     # Constructs a new rectangle given the x and y intervals.
     def __init__(self, xint, yint):
+        # Instance variables
+        # x-interval of the rectangle, _xint (Interval) initialize
         self._xint = xint
+
+        # y-interval of the rectangle, _yint (Interval) initialize
         self._yint = yint
 
     # Returns the area of this rectangle.
     def area(self):
-        # find the difference between hi and lo in a and b
-        # and return the area a * b
+        # find the difference between hi and lo, assign the value in a and b
         a = self._xint.upper() - self._xint.lower()
         b = self._yint.upper() - self._yint.lower()
+
+        # and return the area abs(a * b)
         return abs(a * b)
+
     # Returns the perimeter of this rectangle.
     def perimeter(self):
+        # find the difference between hi and lo, assign the value in a and b
         a = self._xint.upper() - self._xint.lower()
         b = self._yint.upper() - self._yint.lower()
+
+        # p is equal to 2 * (abs(a)+ abs(b))
         p = 2 * (abs(a) + abs(b))
+
+        # return the perimeter p
         return p
 
     # Returns True if this rectangle contains the point (x, y), and False otherwise.

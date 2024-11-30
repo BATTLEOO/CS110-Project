@@ -10,11 +10,15 @@ def main():
 
 # Returns the reverse of the string s.
 def _reverse(s):
-    # use s[:-1]
+    # set n to the length of s
     n = len(s)
+
+    # Base case: if n = 0, return the empty string
     if n == 0:
         return s
+
     # s[n - 1] is the last element in the list, s[:n - 1]
+    # Return a concatenation of s[n - 1] and _reverse(s[:n - 1])
     return s[n - 1] + _reverse(s[:n - 1])
 
 

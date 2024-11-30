@@ -5,29 +5,40 @@ import stdio
 class Interval:
     # Construct a new interval given its lower and upper bounds.
     def __init__(self, lbound, ubound):
+        # Instance variables
+        # Lower bound of the interval, _lbound (float) initialize
         self._lbound = lbound
+
+        # Upper bound of the interval, _rbound (float) initialize
         self._ubound = ubound
 
     # Returns the lower bound of this interval.
     def lower(self):
+        # Return the value of the instance variable _lbound
         return self._lbound
 
     # Returns the upper bound of this interval.
     def upper(self):
+        # Return the value of the instance variable _ubound
         return self._ubound
 
     # Returns True if this interval contains the point x, and False otherwise.
     def contains(self, x):
+        # Return True if the interval self contains x
         if self._ubound >= x >= self._lbound:
             return True
+
+        # otherwise(else) return False
         else:
             return False
 
     # Returns True if this interval intersects other, and False otherwise.
     def intersects(self, other):
-
+        # Return True if the interval self intersects the interval other
         if self._lbound <= other._ubound and other._lbound <= self._ubound:
             return True
+
+        # otherwise(else) return False
         else:
             return False
 

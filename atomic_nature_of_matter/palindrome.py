@@ -10,16 +10,20 @@ def main():
 
 # Returns True if s is a palindrome, and False otherwise.
 def _isPalindrome(s):
+    # set n to the length of s
     n = len(s)
+
+    # Base case: if n = 0, return True
     if n == 0:
         return True
-    # use s[1:-1]
+
+    # return True if the first character (s[:1]) in s is the same as the last character(s[n - 1])
     if s[:1] == s[n - 1]:
 
-        # return _isPalindrome(s[1:-1]). when touch the base case _isPalindrome return True
+        # return _isPalindrome(s[1:-1]). When touch the base case _isPalindrome return True
         return _isPalindrome(s[1:-1])
 
-    # as long as not touching the else statement the function will always be True, when not equal, return false
+    # else: as long as not touching the else statement the function will always be True, when not equal, return false
     else:
         return False
 

@@ -5,12 +5,16 @@ import stdio
 class Point:
     # Constructs a new point given its x and y coordinates.
     def __init__(self, x, y):
+        # instance variables
+        # x-coordinate, _x (float) initialize
         self._x = float(x)
+
+        # y-coordinate, _y (float) initialize
         self._y = float(y)
 
     # Returns the Euclidean distance between this point and other.
     def distanceTo(self, other):
-        # self and other is point
+        # Return the Euclidean distance between the points self and other
         return ((self._x - other._x) ** 2 + (self._y - other._y) ** 2) ** 0.5
 
     # Return a string representation of this point.

@@ -10,7 +10,7 @@ def main():
 
 # Returns the sum 1 + 2 + ... + n.
 def _sumOfInts(n):
-    # set up base n == 1 , return 1
+    # Base case: if n == 1 , return 1
     if n == 1:
         return 1
 

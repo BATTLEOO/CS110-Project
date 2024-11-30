@@ -1,40 +1,28 @@
-from pygame.gfxdraw import pixel
-
 import stdio
-# CODE HAS BEEN FIXED, DO NOT EDIT UNLESS THERE IS ISSUE IN FURTHER PROGRAM
 
 # A data type to represent a blob.
 class Blob:
     # Constructs an empty blob.
     def __init__(self):
-        #CORRECT CODE : DO NOT EDIT
-        # leave the self as empty as default
-        # initial the pixels as int and x and y as float
-        # because it have to be a emtpy constructs because have empty Blob in main()
-        # which means that if create parameter, the program will not work without any parameter provided
-        # we want to set all the data that not explict need input from the user
+        # instance variables
+        # set self._pixels to 0 (int)
         self._pixels = 0
+
+        # set self._x to 0.0 (float)
         self._x = 0.0
+
+        # set self._y to 0.0 (float)
         self._y = 0.0
 
     # Adds pixel (x, y) to this blob.
     def add(self, x, y):
-        # CODE IS CORRECT: DO NOT EDIT
-        # assume i update my x and y every time a new x y is put in side bolb
-        # use the idea of running average to update the center of mass(x, y) of blob(particle)
-        # add pixels coordinates to blob(particle) and update the center of mass dynamically,
-        # so the center of mass is between x and y which is the middle point between x and y , add the pixel in the center of the particle(blob)
-        # if the same blob call add pixel to this blob what will happen
-            # assume, (1, 1) then we put pixel in the center of mass, now we have the center of mass for 1, 1
-            # nexttime, we add (2, 2) a new value of x, y, we put pixel put the pixel in the center of mass in a new center, which is a new one. (for the running average still not sure)
-                # the advice is to use the idea of running average, for here is to sum of x and y, and then divde 2 because only two coordinate
-            # everytime we add a new pixel, we record we have add one brand new pixel to this blob
-        # how to implement dynamically
-        # increment pixels by 1, i move it here because pixels can not divide by zero
+
+        # First increment pixels by 1, avoid divide by zero
         self._pixels += 1
-        # so the mid point idea is good and it is divide by the number of pixels
-        # always remember to put () here if not , the add will be ok but distance method will not use the correct mass to calculate the center of mass
+
+        # always remember to put () here if not the result will be wrong
         # the running average is not the simple one, the running average should be the cumulative  running average, this part is the main idea of this method
+        # use the running average formular to update the mass of center
         self._x = (self._x * (self._pixels - 1) + x) / self._pixels
         self._y = (self._y * (self._pixels - 1) + y) / self._pixels
 
@@ -47,6 +35,7 @@ class Blob:
     # mass of the other blob.
     def distanceTo(self, other):
         # write Euclidean distance formular in the return statement
+        # Return the Euclidean distance between the center of mass of self and the center of mass of other
         return ((other._x - self._x)**2 + (other._y - self._y)**2)** 0.5
 
     # DO NOT EDIT

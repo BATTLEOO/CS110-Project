@@ -15,12 +15,11 @@ def _zeros(s):
         return 0
 
     # remember 0 is string need to use'', if not, the if statement will not check zero correctly
+    # # if zero return 1 + _zeros(s[1:])
     if s[:1] == '0':
-
-        # if zero return 1 + _zeros(s[1:])
         return 1 + _zeros(s[1:])
 
-    # otherwise return _zeros(s[1:])
+    # otherwise(else) return _zeros(s[1:])
     else:
         return _zeros(s[1:])
 
@@ -34,12 +33,11 @@ def _ones(s):
         return 0
 
     # remember 1 is string need to use'', if not, the if statement will not check one correctly
+    # # if 1, return 1 + _ones(s[1:])
     if s[:1] == '1':
-
-        # if 1, return 1 + _ones(s[1:])
         return 1 + _ones(s[1:])
 
-    # otherwise return _ones(s[1:])
+    # otherwise(else) return _ones(s[1:])
     else:
         return _ones(s[1:])
 

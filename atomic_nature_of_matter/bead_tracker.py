@@ -29,13 +29,14 @@ def main():
     # set for loop to iterate subsequent_frame starting at object_frame
     for subsequent_frame in sys.argv[5:]:
 
-        # Construct a BlobFinder object and from it get a list of beads currBeads that have at least pixels
+        # Construct a BlobFinder object(blob_detect) and from it get a list of beads currBeads (store in curr_beads) that have at least pixels
         blob_detect = BlobFinder(Picture(subsequent_frame), tau)
         curr_beads = blob_detect.getBeads(pixels)
 
+        # for curr_bead in curr_beads
         for curr_bead in curr_beads:
 
-            # it is more clean and organize to use map lambda to calculate a list of prev_beads
+            # use map lambda: it is more clean and organize to use map lambda to calculate a list of prev_beads
             distance = map(lambda prev: curr_bead.distanceTo(prev), prev_beads)
 
             # use the filter to create a one time if statement to find the value x < = delta as a list
@@ -44,7 +45,7 @@ def main():
             # if closest_distance is ture
             if closest_distance:
 
-                # because closest_distance is list, and we only want one value that is the closest_distance
+                # use min: because closest_distance is list, and we only want one value that is the closest_distance
                 # the closest_distance means that the smaller the distance is, the closer we are
                 # so use min to find the value that we want, and min also help to change our data type from list to float
                 closest_distance = min(closest_distance)
