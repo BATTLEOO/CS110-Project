@@ -7,11 +7,7 @@ The purpose of this project is to improve my understanding of fundamental progra
 problem-solving skills, and coding best practices.
 
 Contents
-Lecture Exercises – Solutions to coding exercises from class.
-
 Assignments – My homework solutions for CS110.
-
-Self-Learning Projects – Additional Python projects to enhance my understanding.
 
 Disclaimer
 This project is intended for my personal learning and coursework. It is not meant to be copied or submitted as someone else’s work.
