@@ -1,5 +1,5 @@
 CS110-Project
-Author: BATTLEOO
+
 
 Overview
 This repository contains my coursework and self-learning projects for CS110, focusing on Python programming. The purpose of this project is to improve my understanding of fundamental programming concepts, problem-solving skills, and coding best practices.
